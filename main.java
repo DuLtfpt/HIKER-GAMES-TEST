@@ -34,7 +34,7 @@ public class main {
         /*----------------------- logic code to be executed ----------------------------*/
         // Prime number
         System.out.println("\n\n------------Prime number-----------");
-        long number = 15;
+        long number = 1954;
         System.out.println(number+" is prime number?: "+checkPrimeNumber(number));
 
         // Fibonacci
@@ -74,19 +74,17 @@ public class main {
             return false;
         }
 
-        boolean flag = true;
-        long halfNumber = number / 2;
-        // Iterative from 2 to number/2 is enough to find all divisor
-        // except 1 and number itself
-        for (long i = 2; i <= halfNumber; i++) {
+        long i=2;
+        // This will loop from 2 to int(sqrt(x))
+        while ((i*i)<number){
             //if found a divisor
             if (number % i == 0) {
-                flag = false;
-                break;
+                return false;
             }
+            i++;
         }
-
-        return flag;
+        // If not found any divisor then number is prime number
+        return true;
     }
     /*---------------------------------- End Q1 ------------------------------------*/
 
@@ -180,8 +178,6 @@ public class main {
     }
 
     public static long calGCD(long a, long b) {
-        a = Math.abs(a);
-        b = Math.abs(b);
         long r = a % b;
         while (r != 0) {
             a = b;
@@ -203,7 +199,7 @@ public class main {
         double H = (Math.pow(v0, 2) * Math.pow(sina, 2)) / (2 * g);
         // t1= v0 * (sin(a) / g )
         double t1 = v0 * (sina / g);
-        // t2^2 for calculate downward stage
+        // t2^2 for calculate downward state
         double powT2 = Math.pow(t - t1, 2);
         // x = v0 * cos(a) * t
         double x = v0 * Math.cos(Math.toRadians(a)) * t;
@@ -211,13 +207,13 @@ public class main {
         Wrapper<Double> point = new Wrapper<>();
         point.setX(x);
 
-        // downward stage happened when t greater than t1
+        // downward state happened when t greater than t1
         if (t > t1) {
-            // downward stage
+            // downward state
             // y = H - (g * powT2)/2
             point.setY(H - 0.5 * g * powT2);
         } else {
-            // upward stage
+            // upward state
             // y = v0 * sin(a) * t - (g * powT)/2
             point.setY(v0 * sina * t - 0.5 * g * powT);
         }
