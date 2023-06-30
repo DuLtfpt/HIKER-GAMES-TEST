@@ -1,7 +1,7 @@
 # HIKER-GAMES-TEST
-<h1>System requirements</h1>
+<h3>System requirements</h3>
 <p>JRE 8 or above</p>
-<h1>Run command</h1>
-<p>java main</p>
-<h1>Source code</h1>
+<h3>Run command</h3>
+```java main```
+<h3>Source code</h3>
 <p>main.java</p>
